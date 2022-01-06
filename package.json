@@ -1,0 +1,31 @@
+{
+  "name": "zipjson",
+  "version": "1.0.0",
+  "description": "Use JSON Stringify compressed JSON file",
+  "type": "module",
+  "main": "stringify.mjs",
+  "bin": {
+    "zipjson": "index.mjs"
+  },
+  "files": [
+    "index.mjs",
+    "stringify.mjs"
+  ],
+  "scripts": {
+    "test": "node index.mjs package.json --debug"
+  },
+  "homepage": "https://github.com/Wxh16144/zipjson",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wxh16144/zipjson.git"
+  },
+  "author": "wxh16144 <wxh1220@gmail.com>",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "engines": {
+    "node": ">=14.17.0"
+  }
+}
