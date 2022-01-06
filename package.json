@@ -1,6 +1,6 @@
 {
   "name": "zipjson",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Use JSON Stringify compressed JSON file",
   "type": "module",
   "main": "stringify.mjs",

@@ -8,6 +8,13 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync, lstatSync } from 'f
 const ROOT = process.cwd()
 const DEFAULT_ENTRY = 'index.json'
 const LOG = process.argv.slice(2).includes('--debug')
+  || process.argv.slice(2).includes('--log')
+  || process.argv.slice(2).includes('-d')
+  || process.argv.slice(2).includes('-l')
+
+const YES = process.argv.slice(2).includes('--yes')
+  || process.argv.slice(2).includes('--ci')
+  || process.argv.slice(2).includes('-y')
 
 const argv = process.argv.slice(2).reduce((args, arg) => {
   if (arg.includes('--')) return args
@@ -65,7 +72,7 @@ if (!existsSync(outputPath)) {
   mkdirSync(outputPath, { recursive: true })
 }
 
-if (entry === output) {
+if (entry === output && !YES) {
   const readline = createInterface({
     input: process.stdin,
     output: process.stdout
@@ -80,7 +87,7 @@ if (entry === output) {
         process.exit(1);
       }
     } else {
-      LOG && console.log(`[INFO] You cancel the operation`);
+      console.log(`[INFO] You cancel the operation`);
     }
 
     readline.close()
@@ -100,7 +107,7 @@ if (entry === output) {
 async function core(entry, output) {
   const rawdb = await readFileSync(entry, 'utf8')
   if (!isJsonString(rawdb)) {
-   await Promise.reject(`[ERROR] ${entry} is not a valid json file`)
+    await Promise.reject(`[ERROR] ${entry} is not a valid json file`)
   }
   await writeFileSync(output, zipJson(rawdb), 'utf8')
 }

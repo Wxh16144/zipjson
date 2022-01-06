@@ -11,9 +11,10 @@ npx zipjson package.json
 ## Options
 
 ```bash
-npx zipjson {input} {output} --debug
+npx zipjson@latest {input} {output} --debug
 ```
 
 + **input**: file or path. default `./index.json`
 + **output**: file or path. default `./dist/index.json`
-+ **--debug**: console log. defaule `false`
++ **--debug**: console log. defaule `false`, alias `--log`,`-l`,`-d`
++ **--yes**: Agree to all interactions. defaule `false`, alias `--ci`,`-y`
