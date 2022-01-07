@@ -17,7 +17,8 @@ const YES = process.argv.slice(2).includes('--yes')
   || process.argv.slice(2).includes('-y')
 
 const argv = process.argv.slice(2).reduce((args, arg) => {
-  if (arg.includes('--')) return args
+  // https://github.com/Wxh16144/zipjson/issues/1
+  if (arg.match(/^-{1,2}/)) return args
   return args.concat(arg)
 }, [])
 
