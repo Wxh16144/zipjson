@@ -1,0 +1,22 @@
+{
+  // see: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "debug",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      // see: https://nodejs.org/en/download/
+      "runtimeVersion": "14.17.0", // required node version
+      "program": "${workspaceRoot}/index.mjs",
+      "args": [
+        "package.json", // entry point
+        "--debug"
+      ],
+      "cwd": "${workspaceRoot}"
+    }
+  ]
+}
